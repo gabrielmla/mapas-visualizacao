@@ -1,9 +1,9 @@
 #!/bin/bash
 dados="/home/gabriel/Documents/github/mapa-ninja/dados/PB/CSV/Pessoa01_PB.csv"
 # a expressão javascript que cria a variável a plotar
-d3Property='d[0].properties = {responsaveis: Number(d[1].V078)}, d[0]'
+d3Property='d[0].properties = {filhos_enteados_alfa: Number(d[1].V080)}, d[0]'
 # a expressão js que decide os fills baseados em uma escala
-d3Scale='z = d3.scaleThreshold().domain([0, 150, 300, 450, 600]).range(d3.schemeBlues[5]), d.features.forEach(f => f.properties.fill = z(f.properties.responsaveis)), d'
+d3Scale='z = d3.scaleThreshold().domain([0, 150, 300, 450, 600]).range(d3.schemePurples[5]), d.features.forEach(f => f.properties.fill = z(f.properties.filhos_enteados_alfa)), d'
 
 echo "Transformando os dados .csv em json"
 dsv2json \
@@ -31,4 +31,4 @@ ndjson-map \
     "$d3Scale" \
   | ndjson-split 'd.features' \
   | geo2svg -n --stroke none -w 1000 -h 600 \
-    > pb-responsaveis-alfabetizados.svg
+    > pb-responsaveis-filhos-alfabetizados.svg
