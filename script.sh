@@ -1,5 +1,5 @@
 # Caso o npm install -g nao funcione
-export PATH=$PATH:./node_modules/.bin/
+export PATH=$PATH:$HOME/node_modules/.bin/
 
 # Transformar um arquivo .shp em um json com a geometria do mapa
 shp2json 25SEE250GC_SIR.shp -o pb.json
