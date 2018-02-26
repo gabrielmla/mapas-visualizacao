@@ -1,4 +1,4 @@
-dsv2json  -r ';' -n < Matrculasdo_Ensino_Fundamental_na_Educao_Indgena.csv > dado1-indigena-fundamental.ndjson
+dsv2json  -r ',' -n < Matriculado_Ensino_Fundamental_na_Educao_Indgena-SEMREGIAO.csv > dado1-indigena-fundamental.ndjson
 ndjson-split 'd.features' < geo1-br_municipios_projetado.json | ndjson-map 'd.GEOCODIGO = Number(d.properties.GEOCODIGO), d' > geo2-br_municipios_projetado.ndjson
 ndjson-map 'd.GEOCODIGO = Number(d.GEOCODIGO), d' < dado1-indigena-fundamental.ndjson > dado2-indigena-fundamental.ndjson
 
